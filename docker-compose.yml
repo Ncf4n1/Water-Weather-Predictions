@@ -23,3 +23,11 @@ services:
       - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=DOCKER:PLAINTEXT, EXPOSED:PLAINTEXT
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+
+  pgdb:
+    build: docker/postgres
+    image: pgdb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=pg_password
