@@ -1,6 +1,12 @@
 version: "3.7"
 
 services:
+  influx:
+    build: docker/influx
+    image: influx
+    ports:
+      - "8086:8086"
+
   pgdb:
     build: docker/postgres
     image: pgdb
@@ -12,3 +18,18 @@ services:
   shell:
     build: docker/shell
     image: shell
+    volumes:
+      - ./consumer:/consumer
+      - ./producer:/producer
+    environment:
+      - INFLUX_ORG=test_org
+      - INFLUX_BUCKET=test_bucket
+      - INFLUX_TOKEN=5s4HE5tEFapxpNQji9spPhyyudXHoaedTwrz4TLn5ZzwMh3g6bFT6489SNsDjv99n956bMWSEhDJysFnRnmgYw==
+
+  pg_client:
+    depends_on:
+      - pgdb
+    build: docker/pg_client
+    image: pg_client
+    volumes:
+      - ./pg_commands:/commands
