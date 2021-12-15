@@ -35,6 +35,7 @@ def produce_dam_releases(messages: list):
 
     # Iterate over events and maintain an average of the last 10 discharges on the Lower Madison
     lastTenValues = []
+    i = 1  # Dam release counter
     for event in messages:
         if event["code"] == "06041000":
             discharge = int(event["discharge"])
@@ -43,7 +44,6 @@ def produce_dam_releases(messages: list):
                 lastTenValues.pop(0)
             runningAvg = mean(lastTenValues)
 
-            i = 1  # Dam release counter
             # If an event's discharge is significantly higher (1.2x) than the running average, flag and write to Kafka
             if discharge > 1.2 * runningAvg:  # TODO - Test if the 1.2 coefficient should be increased or decreased
                 # Do time conversion for Kafka
@@ -58,7 +58,7 @@ def produce_dam_releases(messages: list):
 
                 # Produce dam release event to topic
                 print("Madison River dam release detected at " + time + "!")
-                producer.send(topic="Madison Dam Release", value=payload, timestamp_ms=epoch_ms)
+                producer.send(topic="Madison_Dam_Release", value=payload, timestamp_ms=epoch_ms)
                 print(f"SENT {payload}")
                 sleep(0.01)
 

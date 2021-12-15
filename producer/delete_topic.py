@@ -15,3 +15,4 @@ if __name__ == "__main__":
     delete("Gallatin")
     delete("Jefferson")
     delete("Madison")
+    delete("Madison_Dam_Release")

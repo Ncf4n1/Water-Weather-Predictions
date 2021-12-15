@@ -30,6 +30,7 @@ def consume(topic: str):
         name = message.value.get("name")
         discharge = float(message.value.get("discharge"))
 
+        time = message.value.get("time")
         time_obj = datetime.strptime(message.value.get("time"), '%Y-%m-%dT%H:%M:%S.%f%z')
 
         lat = message.value.get("geolocation").get("latitude")
@@ -64,4 +65,4 @@ if __name__ == "__main__":
     consume("Gallatin")
     consume("Jefferson")
     consume("Madison")
-    consume("Madison Dam Release")
+    consume("Madison_Dam_Release")
