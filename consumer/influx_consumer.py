@@ -64,3 +64,4 @@ if __name__ == "__main__":
     consume("Gallatin")
     consume("Jefferson")
     consume("Madison")
+    consume("Madison Dam Release")

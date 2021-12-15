@@ -16,3 +16,4 @@ if __name__ == "__main__":
     create("Gallatin")
     create("Jefferson")
     create("Madison")
+    create("Madison Dam Release")

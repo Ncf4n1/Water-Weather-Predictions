@@ -41,12 +41,11 @@ def produce_hydrograph_events(name: str, code: str, geolocation: dict, time_seri
         # Do time conversion for Kafka
         time_obj = datetime.strptime(time, '%Y-%m-%dT%H:%M:%S.%f%z')
         epoch_ms = int(time_obj.timestamp() * 1000)
-        print(epoch_ms)
 
         # Produce event to topic
         producer.send(topic=topic, value=payload, timestamp_ms=epoch_ms)
         print(f"SENT {payload}")
-        # sleep(0.1)  # TODO - Is this necessary or was this just for your test script?
+        sleep(0.01)
 
 
 if __name__ == "__main__":
