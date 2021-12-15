@@ -1,0 +1,1 @@
+PGPASSWORD=pg_password psql -f setup.sql -h pgdb -U postgres postgres

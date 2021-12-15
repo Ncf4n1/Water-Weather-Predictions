@@ -1,1 +1,3 @@
+influxdb-client
 kafka-python
+psycopg2
