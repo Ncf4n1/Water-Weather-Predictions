@@ -4,7 +4,7 @@ from kafka.admin import KafkaAdminClient, NewTopic
 def create(topic_name):
     admin = KafkaAdminClient(
         bootstrap_servers=["brokers:9093"],
-        client_id="test-id"
+        client_id="water-weather-predictions"
     )
 
     topics = [NewTopic(name=topic_name, num_partitions=1, replication_factor=1)]
@@ -13,4 +13,6 @@ def create(topic_name):
     print(f"CREATED TOPIC {topic_name}")
 
 if __name__ == "__main__":
-    create("test-topic")
+    create("Gallatin")
+    create("Jefferson")
+    create("Madison")

@@ -22,9 +22,9 @@ services:
       - ./consumer:/consumer
       - ./producer:/producer
     environment:
-      - INFLUX_ORG=test_org
-      - INFLUX_BUCKET=test_bucket
-      - INFLUX_TOKEN=5s4HE5tEFapxpNQji9spPhyyudXHoaedTwrz4TLn5ZzwMh3g6bFT6489SNsDjv99n956bMWSEhDJysFnRnmgYw==
+      - INFLUX_ORG=llvinin00@gmail.com
+      - INFLUX_BUCKET=hydrograph_time_series
+      - INFLUX_TOKEN=AFc9TbNnbrJ8x0marY-9MMlDWTYZEYWXdjr8oiWK1qZzHyxawpPmx-67ZD2_wdNsqJF-6dfpq7_Lt2WFqJPe0A==
 
   pg_client:
     depends_on:

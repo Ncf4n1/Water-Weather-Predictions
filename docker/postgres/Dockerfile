@@ -1,2 +1,2 @@
-FROM postgres:13
+FROM postgis/postgis:latest
 EXPOSE 5432

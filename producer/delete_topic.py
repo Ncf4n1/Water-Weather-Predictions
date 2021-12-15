@@ -4,7 +4,7 @@ from kafka.admin import KafkaAdminClient, NewTopic
 def delete(topic_name):
     admin = KafkaAdminClient(
         bootstrap_servers=["brokers:9093"],
-        client_id="test-id"
+        client_id="water-weather-predictions"
     )
 
     admin.delete_topics(topics=[topic_name])
@@ -12,4 +12,6 @@ def delete(topic_name):
     print(f"DELETED TOPIC {topic_name}")
 
 if __name__ == "__main__":
-    delete("test-topic")
+    delete("Gallatin")
+    delete("Jefferson")
+    delete("Madison")

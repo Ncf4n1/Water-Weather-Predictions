@@ -46,7 +46,7 @@ def produce_hydrograph_events(name: str, code: str, geolocation: dict, time_seri
         # Produce event to topic
         producer.send(topic=topic, value=payload, timestamp_ms=epoch_ms)
         print(f"SENT {payload}")
-        sleep(0.5)  # TODO - Is this necessary or was this just for your test script?
+        # sleep(0.1)  # TODO - Is this necessary or was this just for your test script?
 
 
 if __name__ == "__main__":
