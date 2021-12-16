@@ -22,9 +22,12 @@ services:
       - ./consumer:/consumer
       - ./producer:/producer
     environment:
-      - INFLUX_ORG=llvinin00@gmail.com
+      # Contant Logan Vining, the owner of this repo, for the organization name
+      # & API Token if you would like to run this system and write data to
+      # InfluxDB
+      - INFLUX_ORG=<placeholder_org>
       - INFLUX_BUCKET=hydrograph_time_series
-      - INFLUX_TOKEN=AFc9TbNnbrJ8x0marY-9MMlDWTYZEYWXdjr8oiWK1qZzHyxawpPmx-67ZD2_wdNsqJF-6dfpq7_Lt2WFqJPe0A==
+      - INFLUX_TOKEN=<secret_token>
 
   pg_client:
     depends_on:
